@@ -1,0 +1,1 @@
+Quipper = Ember.Application.create();
