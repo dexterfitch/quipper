@@ -4,6 +4,7 @@
     <form>
       <div class="form-group">
         {{textarea id="body" value=body class="form-control" placeholder="Penny for your thoughts" maxlength="141"}}
+        {{input id="hashtag" value=hashtag class="form-control" placeholder="#hashtag" maxlength="50"}}
       </div>
 
       <button class="btn btn-primary" {{action 'save'}}>Save</button>
@@ -19,6 +20,7 @@
     {{#each quip in sortedQuips itemController="quip"}}
       <li class="well">
           <p {{action 'expandToggle'}}>{{quip.body}}</p>
+          <p>{{quip.hashtag}}</p>
           {{#if quip.isExpanded}}
             <span class="post-date">{{quip.date}}</span>
             <form class="reply-form form-inline" role="form">

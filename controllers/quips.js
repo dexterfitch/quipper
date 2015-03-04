@@ -13,7 +13,8 @@ Quipper.QuipsController = Ember.ArrayController.extend({
       quips.addObject({ id: id,
                         body: this.body,
                         date: new Date,
-                        replies: []
+                        replies: [],
+                        hashtag: this.hashtag
       });
       this.set('body', null);
     }
