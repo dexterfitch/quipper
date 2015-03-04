@@ -1,3 +1,23 @@
 [data-ember-action] {
   cursor: pointer;
 }
+
+li {
+  padding-left: 1em;
+}
+
+.post-date {
+  font-size: 12px;
+}
+
+.post-date, .reply-date {
+  color: #777;
+}
+
+.reply-date {
+  font-size: 10px;
+}
+
+.reply-form {
+  margin-top: 1em;
+}

@@ -3,10 +3,12 @@ Quipper.QuipController = Ember.ObjectController.extend({
   actions: {
     expandToggle: function() {
       this.set('isExpanded', !this.get('isExpanded'));
+    },
+    addReply: function(quip) {
+      quip.replies.addObject({reply: quip.reply,
+                              date: new Date
+      });
+      this.set('reply', null);
     }
-    // addReply: function(quip) {
-    //   quip.replies.addObject(quip.reply);
-    //   this.set('reply', null);
-    // }
   }
 });

@@ -9,38 +9,13 @@ Quipper.QuipsController = Ember.ArrayController.extend({
     },
     save: function() {
       this.set('isPosting', false);
-      quips.addObject({ id: (quips.length + 1).toString(),
+      var id = (quips.length + 1).toString();
+      quips.addObject({ id: id,
                         body: this.body,
-                        date: new Date(),
+                        date: new Date,
                         replies: []
       });
-      // this.set('body', null);
+      this.set('body', null);
     }
   }
 })
-
-// Quipper.QuipsController = Ember.ArrayController.extend({
-//   sortProperties: ['date'],
-//   sortAscending: false,
-//   isPosting: false,
-//   isShowingDetails: false,
-//   actions: {
-//     post: function() {
-//       this.set('isPosting', true)
-//     },
-//     save: function() {
-//       this.set('isPosting', false),
-//       quips.addObject({ id: (quips.length + 1).toString(),
-//                         body: this.body,
-//                         date: Date.now().toString(),
-//                         dateShow: (new Date()).toString()
-//       })
-//     },
-//     showDetails: function() {
-//       this.set('isShowingDetails', true)
-//     },
-//     hideDetails: function() {
-//       this.set('isShowingDetails', false)
-//     }
-//   }
-// })

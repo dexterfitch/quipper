@@ -14,54 +14,36 @@
 </div>
 
 <div class="col-md-6">
-  <h2>Recent</h2>
-  {{#each quip in sortedQuips itemController="quip"}}
-    <div class="quip-post" {{action 'expandToggle'}}>
-      <p>
-        {{quip.body}}
-        {{#if quip.isExpanded}}
-          <br>
-          {{quip.date}}
-        {{/if}}
-      </p>
-    </div>
-  {{/each}}
+  <h2>Recent Quips</h2>
+  <ul class="list-unstyled">
+    {{#each quip in sortedQuips itemController="quip"}}
+      <li class="well">
+          <p {{action 'expandToggle'}}>{{quip.body}}</p>
+          {{#if quip.isExpanded}}
+            <span class="post-date">{{quip.date}}</span>
+            <form class="reply-form form-inline" role="form">
+              <div class="form-group">
+                {{input class="reply form-control input-sm" value=quip.reply placeholder="Quip back"}}
+              </div>
+              <button class="btn btn-info btn-sm" {{action 'addReply' quip}}>Reply</button>
+            </form>
+            {{#if quip.replies}}
+            <h4>Replies</h4>
+            <ul class="list-unstyled">
+              {{#each reply in quip.replies}}
+                <li>
+                  {{reply.reply}}
+                  <br>
+                  <span class="reply-date">{{reply.date}}</span>
+                </li>
+              {{/each}}
+            </ul>
+            {{/if}}
+          {{/if}}
+      </li>
+    {{/each}}
+  </ul>
 </div>
 
 <div class="col-md-3">
 </div>
-
-<!-- <div class="col-md-3">
-  <h2>Compose Quip</h2>
-  {{#if isPosting}}
-    <form>
-      <div class="form-group">
-        {{textarea id="body" value=body class="form-control" placeholder="Penny for your thoughts" maxlength="141"}}
-      </div>
-
-      <button class="btn btn-primary" {{action 'save'}}>Save</button>
-    </form>
-  {{else}}
-    <button class="btn btn-primary" {{action 'post'}}>Add</button>
-  {{/if}}
-</div>
-
-<div class="col-md-6">
-  <h2>Recent</h2>
-  {{#each}}
-    {{#if isShowingDetails}}
-      <div class="quip-post">
-        <p {{action 'hideDetails'}}>
-          {{id}} - {{body}} - {{dateShow}}
-        </p>
-      </div>
-    {{else}}
-      <div class="quip-post">
-        <p {{action 'showDetails'}}>{{id}} - {{body}}</p>
-      </div>
-    {{/if}}
-  {{/each}}
-</div>
-
-<div class="col-md-3">
-</div> -->
