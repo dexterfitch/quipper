@@ -6,7 +6,10 @@ li {
   padding-left: 1em;
 }
 
-.post-date {
+.hashtag {
+  color: #31B0D5;
+}
+.hashtag, .post-date {
   font-size: 12px;
 }
 
